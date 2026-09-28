@@ -1,0 +1,20 @@
+class Solution {
+    public int maxAbsoluteSum(int[] nums) {
+        int maxEnding=0;
+        int minEnding=0;
+
+        int maxsoFar=0;
+        int minsoFar=0;
+        int i=0;
+        while(i<nums.length){
+            maxEnding=Math.max(nums[i],maxEnding+nums[i]);
+            maxsoFar=Math.max(maxsoFar,maxEnding);
+
+            minEnding=Math.min(nums[i],minEnding+nums[i]);
+            minsoFar=Math.min(minsoFar,minEnding);
+
+            i++;
+        }
+        return Math.max(maxsoFar, Math.abs(minsoFar));
+    }
+}
